@@ -1,0 +1,61 @@
+.check-dialog {
+  background: var(--background-dialog);
+  font-family: "servusslab";
+  font-weight: bold;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    font-family: "hyborian";
+    font-size: 17px;
+    color: #97141c;
+    text-align: center;
+    padding-top: 10px;
+    text-transform: uppercase;
+    border: 0px;
+    margin: 0px;
+  }
+  .dialog-intro {
+    font-family: "codepro";
+    font-weight: bold;
+    font-size: 22px;
+    background: #97141c;
+    color: black;
+    border: solid 2px black;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+  .dialog-grid {
+    color: black;
+    margin: 15px 10px 10px 10px;
+    grid-template-columns: 110px 100px;
+    grid-template-rows: 40px 40px 40px 40px;
+    display: grid;
+    input {
+      width: 3em;
+      color: black;
+      background: rgba(0, 0, 0, 0.1);
+    }
+    select {
+      width: auto;
+      color: black;
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .damageChange {
+      width: 8em;
+    }
+  }
+  .form-footer {
+    display: flex;
+    justify-content: center;
+  }
+  .dialog-button {
+    padding: 10px;
+    color: white;
+    border: solid 2px black;
+    border-radius: 20px;
+    margin: 20px 0px 0px 10px;
+    width: 170px;
+  }
+}

@@ -1,0 +1,366 @@
+{
+  "TYPES": {
+    "Actor": {
+      "player": "Personnage",
+      "npc": "PNJ"
+    },
+    "Item": {
+      "armor": "Armure",
+      "npcability": "Capacité de PNJ",
+      "originBonus": "Bonus d'origine",
+      "skill": "Compétence",
+      "spell": "Sort",
+      "weapon": "Arme"
+    }
+  },
+  "CONAN": {
+    "LABEL": {
+      "ar": "IP",
+      "armorRating": "Indice de protection",
+      "armors": "Armures",
+      "armorType": "Type d'armure",
+      "attribute": "Attribut",
+      "attributes": "Attributs",
+      "background": "Historique",
+      "damage": "Dégâts",
+      "defence": "Défense",
+      "description": "Description",
+      "difficulty": "Difficulté",
+      "discipline": "Compétence de sorcellerie",
+      "disciplines": "Compétences de sorcellerie",
+      "encombrement": "Encombrement",
+      "experience": "Experience",
+      "flexDie": "Prouesse",
+      "lifePoints": "Points de vie",
+      "lifeCost": "Coût en PV",
+      "modifier": "Modificateur",
+      "name": "Nom",
+      "origin": "Origine",
+      "originBonuses": "Bonus d'origine",
+      "physical": "Physique",
+      "physicaldef": "Défense physique",
+      "range": "Portée",
+      "skills": "Compétences",
+      "sorcery": "Sorcellerie",
+      "sorcerydef": "Défense magique",
+      "stamina": "Héroïsme",
+      "staminaCost": "Coût en PH",
+      "threshold": "Seuil de résistance",
+      "unlockSheet": "Verrouiller / déverouiller la feuille",
+      "weaponType": "Type d'arme",
+      "weapons": "Armes",
+      "xpCost": "Coût en XP",
+      "zones": "Zones"
+    },
+    "ATTRIBUTES": {
+      "might": {
+        "label": "Force",
+        "description": ""
+      },
+      "edge": {
+        "label": "Finesse",
+        "description": ""
+      },
+      "grit": {
+        "label": "Ténacité",
+        "description": ""
+      },
+      "wits": {
+        "label": "Esprit",
+        "description": ""
+      }
+    },
+    "ARMOR_TYPES": {
+      "light": {
+        "label": "Légère"
+      },
+      "medium": {
+        "label": "Moyenne"
+      },
+      "heavy": {
+        "label": "Lourde"
+      },
+      "shield": {
+        "label": "Bouclier"
+      }
+    },
+    "CHATMESSAGE": {
+      "damageresult": "Dommages",
+      "failure": "Échec",
+      "failure_one": "Échec (1 au dé)",
+      "fightinStyle": " adopte le style de combat : ",
+      "introFightingStyle": "<div class='action-chat'><p>{charName} adopte le style de combat : {label}</p><p>Armes : {weapons}</p><p>Bonus : {bonus}</p><p>Pénalités : {hindrance}</p></div>",
+      "flexdiceresult": "Prouesse",
+      "formularesult": "Résultat",
+      "introStdCheck": "{actingCharName} teste {statlabel}",
+      "introAttack": "{actingCharName} attaque avec {weaponName}.",
+      "margin": "Marge",
+      "rollDamage": "Lancer les dommages",
+      "rollDamage1d4": "Lancer les dommages+1d4",
+      "rollDamage2d4": "Lancer les dommages+2d4",
+      "success": "Réussite"
+    },
+    "CLASSIFICATION": {
+      "beast": {
+        "label": "Animal"
+      },
+      "demon": {
+        "label": "Démon"
+      },
+      "human": {
+        "label": "Humain"
+      },
+      "monstrosity": {
+        "label": "Abomination"
+      },
+      "object": {
+        "label": "Objet inanimé"
+      },
+      "undead": {
+        "label": "Mort-vivant"
+      }
+    },
+    "CONTEXT": {
+      "attackCheck": "Test d'attaque",
+      "delete": "Supprimer",
+      "open": "Afficher",
+      "resetStamina": "Initialiser Héroïsme",
+      "setToMax": "Mettre au max",
+      "showPortrait": "Afficher le portrait",
+      "stdCheck": "Test standard"
+    },
+    "DIALOG": {
+      "intro": "Test aux dés",
+      "promptTitle": "Test",
+      "throw": "Lancer les dés",
+      "portrait": "Montrer aux joueurs",
+      "cancel": "Annuler"
+    },
+    "DICE": {
+      "d4": {
+        "label": "D4"
+      },
+      "d6": {
+        "label": "D6"
+      },
+      "d8": {
+        "label": "D8"
+      },
+      "d10": {
+        "label": "D10"
+      },
+      "d12": {
+        "label": "D12"
+      }
+    },
+    "DISCIPLINES": {
+      "alchemy": {
+        "label": "Alchimie"
+      },
+      "blackmagic": {
+        "label": "Magie noire"
+      },
+      "demonology": {
+        "label": "Démonologie"
+      },
+      "necromancy": {
+        "label": "Nécromancie"
+      },
+      "whitemagic": {
+        "label": "Magie blanche"
+      }
+    },
+    "ENNEMIES": {
+      "minion": {
+        "label": "Sbire"
+      },
+      "antagonist": {
+        "label": "Antagoniste"
+      }
+    },
+    "FIGHTING_STYLES": {
+      "deadeyeShooter": {
+        "label": "Tireur émérite",
+        "weapons": "N’importe quelle arme à Distance",
+        "bonus": "Le Personnage inflige 1D4 Points de Dommages supplémentaires lorsqu’il effectue une Attaque à l’aide d’une arme à Distance.",
+        "hindrance": "Effectuer la moindre Action de Déplacement lors de son Tour (même en dépensant des Points d’héroïsme ou par quelque autre moyen que ce soit) revient à renoncer à ce Style de combat. Le Personnage ne peut effectuer aucune Action de Manipulation."
+      },
+      "defensiveFighter": {
+        "label": "Combat défensif",
+        "weapons": "N’importe quelle arme à Une main combinée à un bouclier",
+        "bonus": "Le Personnage obtient un bonus de +1 sur son IP dès lors qu’il n’effectue aucune Action de Déplacement durant son Tour.",
+        "hindrance": "Effectuer plus d’une Action de Déplacement par Tour (même en dépensant des Points d’héroïsme ou par quelque autre moyen que ce soit) revient à renoncer à ce Style de combat. Le Personnage ne peut effectuer aucune Action de Manipulation."
+      },
+      "dualWielder": {
+        "label": "Combat à deux armes",
+        "weapons": "N’importe quelle combinaison de deux armes à Une main Légères ou Moyennes.",
+        "bonus": "Lorsqu’il effectue une Attaque, le Personnage ajoute les Dommages de ses deux armes à sa Force.",
+        "hindrance": "-1 IP (minimum de 0). Le Personnage ne peut effectuer aucune Action de Manipulation."
+      },
+      "flexibleFighter": {
+        "label": "Combattant polyvalent",
+        "weapons": "N’importe quelle arme à Une main (du moment que l’autre main est libre)",
+        "bonus": "+1 aux Dommages infligés par le Personnage. L’Action de Manipulation devient une Action Gratuite",
+        "hindrance": "-1 à la Défense Physique."
+      },
+      "greatWeaponFighter": {
+        "label": "Combattant de choc",
+        "weapons": "N’importe quelle arme à Deux mains",
+        "bonus": "Le Personnage inflige 1D4 Points de Dommages supplémentaires lorsqu’il effectue une Attaque Ciblée.",
+        "hindrance": "Seule la première Action du Round peut être un Déplacement. Le Personnage ne peut effectuer aucune Action de Manipulation."
+      },
+      "none": {
+        "label": "Neutre",
+        "weapons": "Toutes",
+        "bonus": "Aucun.",
+        "hindrance": "Aucune."
+      },
+      "phalanxFighter": {
+        "label": "Combat en phalange",
+        "weapons": "Épieu ou hallebarde (armes à Deux mains autorisant les Attaques à Portée Courte)",
+        "bonus": "Le Personnage bénéficie d’un bonus de +1 à l’Attaque et aux Dommages s’il effectue au moins une Action de Déplacement durant le Round et d’un bonus de +1 à la Défense Physique s’il renonce à effectuer le moindre Déplacement durant le Round.",
+        "hindrance": "Le bonus associé à cette posture ne s’applique que si un autre PJ adoptant également ce Style de combat se trouve à Portée Courte. Le Personnage ne peut effectuer aucune Action de Manipulation."
+      }
+    },
+    "INFO": {
+      "rightclick": "Click droit pour menu",
+      "physdefformula": "Attribut Finesse +2 +tout bonus (Min 5)",
+      "sordefformula": "Attribut Esprit +2 +tout bonus (Min 5)"
+    },
+    "NEW": {
+      "armor": "Nouvelle armure",
+      "npcability": "Nouvelle capacité",
+      "originBonus": "Nouvelle origine",
+      "skill": "Nouvelle compétence",
+      "weapon": "Nouvelle arme"
+    },
+    "RANGES": {
+      "touch": {
+        "label": "Contact"
+      },
+      "close": {
+        "label": "Courte"
+      },
+      "medium": {
+        "label": "Moyenne"
+      },
+      "long": {
+        "label": "Longue"
+      },
+      "distant": {
+        "label": "Extrême"
+      }
+    },
+    "SETTINGS": {
+      "systemGuide": {
+        "name": "Guide du système",
+        "hint": "Afficher le guide du système"
+      },
+      "advancedrules": {
+        "name": "Règles avancées",
+        "hint": "Utiliser les règles avancées de Styles de combat"
+      }
+    },
+    "WEAPON_TYPES": {
+      "melee": {
+        "label": "Mêlée"
+      },
+      "ranged": {
+        "label": "Trait"
+      },
+      "shield": {
+        "label": "Bouclier"
+      },
+      "sorcery": {
+        "label": "Sorcellerie"
+      },
+      "thrown": {
+        "label": "Jet"
+      },
+      "unarmed": {
+        "label": "Non armé"
+      }
+    },
+    "WEAPON_WEIGHTS": {
+      "light": {
+        "label": "Légère"
+      },
+      "medium": {
+        "label": "Moyenne"
+      },
+      "heavy": {
+        "label": "Lourde"
+      },
+      "unarmed": {
+        "label": "Non armé"
+      }
+    },
+    "Source": {
+      "FIELDS": {
+        "ar": {
+          "label": "IP"
+        },
+        "armorRating": {
+          "label": "Indice de Protection"
+        },
+        "armorType": {
+          "label": "Type d'armure"
+        },
+        "bonus": {
+          "label": "Bonus"
+        },
+        "damage": {
+          "label": "Dégâts"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "discipline": {
+          "label": "Compétence de sorcellerie"
+        },
+        "encombrement": {
+          "label": "Encombrement"
+        },
+        "hindrance": {
+          "label": "Pénalités"
+        },
+        "lifeCost": {
+          "label": "Coût en PV"
+        },
+        "lifepoints": {
+          "label": "Points de vie"
+        },
+        "name": {
+          "Name": "Nom"
+        },
+        "origin": {
+          "label": "Origine"
+        },
+        "range": {
+          "label": "Portée"
+        },
+        "stamina": {
+          "label": "Héroïsme"
+        },
+        "staminaCost": {
+          "label": "Coût en PH"
+        },
+        "weapons": {
+          "label": "Armes"
+        },
+        "weaponType": {
+          "label": "Type d'arme"
+        },
+        "weaponWeight": {
+          "label": "Poids"
+        },
+        "xpCost": {
+          "label": "Coût en XP"
+        },
+        "zones": {
+          "label": "Zones"
+        }
+      }
+    }
+  }
+}

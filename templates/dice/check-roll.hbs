@@ -1,0 +1,63 @@
+{{!log "chat standard check roll" this}}
+<div class="action-chat {{cssClass}}">
+  <div class="intro-chat">
+    {{#if (ne actingCharImg "icons/svg/mystery-man.svg")}}
+    <div class="intro-img">
+      <img src="{{actingCharImg}}" title="{{actingCharName}}" />
+    </div>
+    {{/if}}
+    <div class="intro-right">
+      <p class="introText">{{{introText}}}</p>
+    </div>
+  </div>
+  <div class="centerimg">
+    <img src="systems/conan-hyborian-age/assets/images/line-weapon.webp"/>
+  </div>
+    <details>
+      <summary class="result-high">
+        {{#if hasFlex}}
+        <p class="result-low {{#if flexTrigger}}redcolor{{/if}}" data-tooltip="{{flextooltip}}">
+          {{#if flexTrigger}}<i class="fa-solid fa-check"></i> {{/if}}{{localize "CONAN.CHATMESSAGE.flexdiceresult"}} : {{flexRollResult}}{{#if flexTrigger}} <i class="fa-solid fa-check"></i>{{/if}}
+        </p>
+        {{/if}}
+        <p class="result-high" data-tooltip="{{actiontooltip}}">
+          {{localize "CONAN.CHATMESSAGE.formularesult"}} : {{#if resultOne}}<i class="fa-solid fa-dice-one"></i> {{/if}}{{rolleddice}}{{#if resultOne}} <i class="fa-solid fa-dice-one"></i>{{/if}}
+        </p>
+        {{#if difficulty}}
+        <p class="result-high">{{{finalText}}}</p>
+        {{/if}}
+      </summary>
+      {{#if modifier}}
+      <p class="result-low">
+        {{localize "CONAN.LABEL.modifier"}} : {{modifier}}
+      </p>
+      {{/if}}
+      {{#if difficulty}}
+      <p class="result-low">
+        {{localize "CONAN.LABEL.difficulty"}} : {{difficulty}}
+      </p>
+      {{/if}}
+    </details>
+    {{#if hasDamage}}
+      <div class="centerimg">
+        <img src="systems/conan-hyborian-age/assets/images/line-weapon.webp"/>
+      </div>
+      <p class="result-high">
+        {{localize "CONAN.CHATMESSAGE.rollDamage"}}
+      </p>
+      <p class="result-high">
+        {{damage}}
+      </p>
+      <div class="damagebuttons">
+        <p class="rollbutton " data-action="rolldamage" data-actor-id="{{actorId}}" data-tooltip="{{localize "CONAN.CHATMESSAGE.rollDamage"}}" data-field=""><i class="fas fa-sword"></i></p>
+        <p class="rollbutton" data-action="rolldamage" data-actor-id="{{actorId}}" data-tooltip="{{localize "CONAN.CHATMESSAGE.rollDamage1d4"}}" data-field="+1d4"><i class="fas fa-sword"></i>{{{localize "+1d4"}}}</p>
+        <p class="rollbutton" data-action="rolldamage" data-actor-id="{{actorId}}" data-tooltip="{{localize "CONAN.CHATMESSAGE.rollDamage2d4"}}" data-field="+2d4"><i class="fas fa-sword"></i>{{{localize "+2d4"}}}</p>
+      </div>
+      {{#if damageResult}}
+        <p class="result-high" data-tooltip="{{damageTooltip}}">
+            {{localize "CONAN.CHATMESSAGE.damageresult"}} : {{damageResult}}
+        </p>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

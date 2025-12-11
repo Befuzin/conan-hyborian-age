@@ -1,0 +1,182 @@
+<section class="tab skills {{tab.cssClass}}" data-group="primary" data-tab="skills">
+    <div class="stats-blockline">
+    {{#each attributes as |attr key|}}
+        <div class="stat-block stat-grid std-contextmenu" data-group="stats" data-statname="{{key}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <div class="stat-label">{{attr.label}}</div>
+            <div class="stat-value">
+                {{#if ../unlocked}}
+                {{formInput attr.valueField value=attr.value type="number" placeholder="0"}}
+                {{else}}
+                {{attr.value}}
+                {{/if}}
+            </div>
+            <div class="stat-dice">
+                {{#if ../unlocked}}
+                {{formGroup attr.diceField value=attr.dice localize=true }}
+                {{else}}
+                {{attr.dicelabel}}
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+        <div class="flex-block">
+            <div class="flex-label">{{localize "CONAN.LABEL.flexDie"}}</div>
+            <div class="flex-value">
+                {{#if unlocked}}
+                {{formInput systemFields.flexDie value=system.flexDie}}
+                {{else}}
+                {{actor.system.flexDie}}
+                {{/if}}
+            </div>
+        </div>
+        <div class="stat-block def-grid">
+            <div class="stat-label">{{localize "CONAN.LABEL.defence"}}</div>
+            <div class="physdef-label" title="{{localize 'CONAN.INFO.physdefformula'}}">{{localize "CONAN.LABEL.physical"}}</div>
+            <div class="physdef-value" title="{{localize 'CONAN.INFO.physdefformula'}}">
+                {{#if unlocked}}
+                {{formInput systemFields.defence.fields.physical.fields.value value=system.defence.physical.value}}
+                {{else}}
+                {{actor.system.defence.physical.value}}
+                {{/if}}
+            </div>
+            <div class="sorcdef-label" title="{{localize 'CONAN.INFO.sordefformula'}}">{{localize "CONAN.LABEL.sorcery"}}</div>
+            <div class="sorcdef-value" title="{{localize 'CONAN.INFO.sordefformula'}}">
+                {{#if unlocked}}
+                {{formInput systemFields.defence.fields.sorcery.fields.value value=system.defence.sorcery.value}}
+                {{else}}
+                {{actor.system.defence.sorcery.value}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="flexrow" style="align-items: flex-start">
+    <div class="skills-block">
+        <h2>{{localize "CONAN.LABEL.skills"}}</h2>
+             {{#if unlocked}}
+                <span class="plusicon">
+                    <i class="fas fa-plus" data-action="newItem" data-field="skill" title="{{localize 'CONAN.NEW.skill'}}"></i>
+                </span>
+            {{/if}}
+        {{#each originBonuses as |origin id|}}
+            <div class="item-contextmenu" data-item-id="{{origin._id}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <details>
+                <summary class="skill">
+                    <div class="flexrow">
+                        {{#if (ne origin.img "icons/svg/item-bag.svg")}}
+                        <div class="imagecontainer">
+                            <img src="{{origin.img}}" title="{{origin.name}}" />
+                        </div>
+                        {{/if}}
+                        <div class="skill-name">{{origin.name}}</div>
+                    </div>
+                </summary>
+                <div class="description">{{{origin.system.descriptionHTML}}}</div>
+            </details>
+            </div>
+        {{/each}}
+        {{#each skills as |skill id|}}
+            <div class="item-contextmenu" data-item-id="{{skill._id}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <details>
+                <summary class="skill">
+                    <div class="flexrow" style="align-items: flex-start">
+                        {{#if (ne skill.img "icons/svg/item-bag.svg")}}
+                        <div class="imagecontainer">
+                            <img src="{{skill.img}}" title="{{skill.name}}" />
+                        </div>
+                        {{/if}}
+                        <div class="skill-name">{{skill.name}}</div>
+                    </div>
+                </summary>
+                <div class="description">{{{skill.system.descriptionHTML}}}</div>
+            </details>
+            </div>
+        {{/each}}
+        {{#each spells as |spell id|}}
+            <div class="item-contextmenu" data-item-id="{{spell._id}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <details>
+                <summary class="skill">
+                    <div class="flexrow" style="align-items: flex-start">
+                        {{#if (ne spell.img "icons/svg/item-bag.svg")}}
+                        <div class="imagecontainer">
+                            <img src="{{spell.img}}" title="{{spell.name}}" />
+                        </div>
+                        {{/if}}
+                        <div class="spell-name">{{spell.name}}</div>
+                    </div>
+                </summary>
+                <div class="description">{{{spell.system.descriptionHTML}}}</div>
+            </details>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="items-block">
+        <h2>{{localize "CONAN.LABEL.weapons"}}</h2>
+        <div class="centerimg">
+          <img src="systems/conan-hyborian-age/assets/images/line-weapon.webp"/>
+        </div>
+             {{#if unlocked}}
+                <span class="plusicon">
+                    <i class="fas fa-plus" data-action="newItem" data-field="weapon" title="{{localize 'CONAN.NEW.weapon'}}"></i>
+                </span>
+            {{/if}}
+        {{#each weapons as |weapon id|}}
+            <div class="item-contextmenu" data-item-id="{{weapon._id}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <details>
+                <summary class="weapon">
+                    <div class="weapongrid">
+                        {{#if (ne skill.img "icons/svg/item-bag.svg")}}
+                        <div class="imagecontainer">
+                            <img src="{{weapon.img}}" title="{{weapon.name}}" />
+                        </div>
+                        {{/if}}
+                        <div class="weapon-name {{#if (eq weapon.system.weaponType "sorcery")}}purplecolor{{else}}redcolor{{/if}}">{{weapon.name}}</div>
+                        <div class="weapon-damage {{#if (eq weapon.system.weaponType "sorcery")}}purplecolor{{else}}redcolor{{/if}}">{{weapon.system.damageFormula}}</div>
+                    </div>
+                </summary>
+                    <div class="weapon-details">
+                        <div class="field-name">{{localize "CONAN.LABEL.weaponType"}}</div>
+                        <div class="weapon-value">{{getLabel "WEAPON_TYPES" weapon.system.weaponType}}</div>
+                        <div class="field-name">{{localize "CONAN.LABEL.range"}}</div>
+                        <div class="weapon-range">{{getLabel "RANGES" weapon.system.range}}</div>
+                    </div>
+                <div class="description">{{{weapon.system.descriptionHTML}}}</div>
+            </details>
+            </div>
+        {{/each}}
+        <h2>{{localize "CONAN.LABEL.armors"}}</h2>
+        <div class="centerimg">
+          <img src="systems/conan-hyborian-age/assets/images/line-armor.webp"/>
+        </div>
+            {{#if unlocked}}
+            <span class="plusicon">
+                <i class="fas fa-plus" data-action="newItem" data-field="armor" title="{{localize 'CONAN.NEW.armor'}}"></i>
+            </span>
+            {{/if}}
+            {{#each armors as |armor id|}}
+            <div class="item-contextmenu" data-item-id="{{armor._id}}" title="{{localize 'CONAN.INFO.rightclick'}}">
+            <details>
+                <summary class="weapon">
+                    <div class="weapongrid">
+                        {{#if (ne skill.img "icons/svg/item-bag.svg")}}
+                        <div class="imagecontainer">
+                            <img src="{{armor.img}}" title="{{armor.name}}" />
+                        </div>
+                        {{/if}}
+                        <div class="weapon-name redcolor">{{armor.name}}</div>
+                        <div class="weapon-damage redcolor">{{armor.system.armorRating}}</div>
+                    </div>
+                </summary>
+                    <div class="weapon-details">
+                        <div class="field-name">{{localize "CONAN.LABEL.armorType"}}</div>
+                        <div class="weapon-value">{{getLabel "ARMOR_TYPES" armor.system.armorType}}</div>
+                        <div class="field-name">{{localize "CONAN.LABEL.encombrement"}}</div>
+                        <div class="weapon-range">{{armor.system.encombrement}}</div>
+                    </div>
+                <div class="description">{{{armor.system.descriptionHTML}}}</div>
+            </details>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

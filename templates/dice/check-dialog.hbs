@@ -1,0 +1,17 @@
+<section class="content">
+  <h3>{{localize "CONAN.DIALOG.intro"}} : {{label1}}</h3>
+  <div class="dialog-grid">
+    {{localize "CONAN.LABEL.attribute"}}
+    <select class="changefield" name="attribute">
+      {{selectOptions attributes selected=statname label="label_short"}}
+    </select>
+    {{localize "CONAN.LABEL.modifier"}}
+    <input class="modifierChange" data-field="modifierChange" name="modifier" type="number" value="{{modifier}}" />
+    {{localize "CONAN.LABEL.difficulty"}}
+    <input class="difficultyChange" data-field="difficultyChange" name="difficulty" type="number" value="{{difficulty}}" placeholder="Unknown" />
+    {{#if hasDamage}}
+      {{localize "CONAN.LABEL.damage"}}
+      <input class="damageChange" data-field="damageChange" name="damage" type="text" value="{{damage}}" />
+    {{/if}}
+  </div>
+</section>

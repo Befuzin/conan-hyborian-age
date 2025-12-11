@@ -1,0 +1,68 @@
+@import "./actor-sheet.less";
+@import "./chat.less";
+@import "./dialog.less";
+@import "./item.less";
+@import "./npc-sheet.less";
+
+@font-face {
+  font-family: "servusslab";
+  src: url("../assets/fonts/servus-slab.otf") format("truetype");
+}
+@font-face {
+  font-family: "servusslab";
+  src: url("../assets/fonts/servus-slab-italic.otf") format("truetype");
+  font-weight: italic;
+}
+@font-face {
+  font-family: "servusslab";
+  src: url("../assets/fonts/servus-slab-bold.otf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "hyborian";
+  src: url("../assets/fonts/hyborian2.ttf") format("truetype");
+}
+
+.conan-scrollable {
+  padding-right: initial;
+  scrollbar-gutter: auto;
+  .window-content {
+    overflow-y: scroll;
+  }
+}
+#logo {
+  content: var(--logo-standard);
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+#pause > img {
+  content: var(--logo-standard);
+  height: 120px;
+  width: 120px;
+}
+
+:root {
+  --red-color: #5b1216;
+  --purple-color: #40122f;
+  --red-back-color: #dfcdc7;
+  --purple-back-color: #cdc0c8;
+  --brown-color: #2a0500;
+  --lightbrown-color: #e4d6bb;
+
+  --sheet-insert-color: #f6f3ea;
+  --logo-standard: url("/systems/conan-hyborian-age/assets/images/snake-logo.webp");
+
+  --item-background: url("../assets/images/item-bck.webp");
+  --player-background: url("../assets/images/player-bck.webp");
+  --npc-background: url("../assets/images/npc-bck.webp");
+  --spell-background: url("../assets/images/spell-bck.webp");
+  --twoboxes-background: url("../assets/images/two-boxes.webp");
+  --twofullboxes-background: url("../assets/images/two-full-boxes.webp");
+  --largebox-background: url("../assets/images/large-box.webp");
+
+  --background-dialog: url("../assets/images/dialog-bck.webp");
+  --background-chat: url("../assets/images/chat-bck.webp");
+
+}

@@ -1,0 +1,365 @@
+{
+  "TYPES": {
+    "Actor": {
+      "player": "Player",
+      "npc": "NPC"
+    },
+    "Item": {
+      "armor": "Armor",
+      "npcability": "NPC ability",
+      "originBonus": "Origin Bonus",
+      "skill": "Skill",
+      "spell": "Spell",
+      "weapon": "Weapon"
+    }
+  },
+  "CONAN": {
+    "LABEL": {
+      "ar": "AR",
+      "armorRating": "Armor Rating",
+      "armors": "Armors",
+      "armorType": "Armor Type",
+      "attribute": "Stat",
+      "attributes": "Stats",
+      "background": "Background",
+      "damage": "Damage",
+      "defence": "Defense",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "discipline": "Sorcery discipline",
+      "disciplines": "Sorcery disciplines",
+      "encombrement": "Encombrement",
+      "experience": "Experience",
+      "flexDie": "Flex die",
+      "lifePoints": "Life points",
+      "lifeCost": "Life Cost",
+      "modifier": "Modifier",
+      "name": "Name",
+      "origin": "Origin",
+      "originBonuses": "Origin bonuses",
+      "physical": "Physical",
+      "physicaldef": "Physical defense",
+      "range": "Range",
+      "skills": "Skills",
+      "sorcery": "Sorcery",
+      "sorcerydef": "Sorcery defense",
+      "stamina": "Stamina",
+      "staminaCost": "Stamina Cost",
+      "threshold": "Treshold",
+      "unlockSheet": "Lock / Unlock sheet",
+      "weaponType": "Weapon Type",
+      "weapons": "Weapons",
+      "xpCost": "XP Cost",
+      "zones": "Zones"
+    },
+    "ATTRIBUTES": {
+      "might": {
+        "label": "Might",
+        "description": ""
+      },
+      "edge": {
+        "label": "Edge",
+        "description": ""
+      },
+      "grit": {
+        "label": "Grit",
+        "description": ""
+      },
+      "wits": {
+        "label": "Wits",
+        "description": ""
+      }
+    },
+    "ARMOR_TYPES": {
+      "light": {
+        "label": "Light"
+      },
+      "medium": {
+        "label": "Medium"
+      },
+      "heavy": {
+        "label": "Heavy"
+      },
+      "shield": {
+        "label": "Shield"
+      }
+    },
+    "CHATMESSAGE": {
+      "damageresult": "Damage",
+      "failure": "Failure",
+      "failure_one": "Failure (1 rolled)",
+      "formularesult": "Results",
+      "introFightingStyle": "<div class='action-chat'><p>{charName} has adopted the fighting style : {label}</p><p>Weapons : {weapons}</p><p>Bonus : {bonus}</p><p>Hindrance : {hindrance}</p></div>",
+      "flexdiceresult": "Flex",
+      "introStdCheck": "{actingCharName} rolls {statlabel}",
+      "introAttack": "{actingCharName} attacks with {weaponName}.",
+      "margin": "Margin",
+      "rollDamage": "Roll damage",
+      "rollDamage1d4": "Roll damage+1d4",
+      "rollDamage2d4": "Roll damage+2d4",
+      "success": "Success"
+    },
+    "CLASSIFICATION": {
+      "beast": {
+        "label": "Beast"
+      },
+      "demon": {
+        "label": "Demon"
+      },
+      "human": {
+        "label": "Human"
+      },
+      "monstrosity": {
+        "label": "Monstrosity"
+      },
+      "object": {
+        "label": "Object"
+      },
+      "undead": {
+        "label": "Undead"
+      }
+    },
+    "CONTEXT": {
+      "attackCheck": "Attack check",
+      "delete": "Delete",
+      "open": "Open",
+      "resetStamina": "Reset stamina",
+      "setToMax": "Set to max",
+      "showPortrait": "Show portrait",
+      "stdCheck": "Standard check"
+    },
+    "DIALOG": {
+      "intro": "Dice check",
+      "promptTitle": "Dice check",
+      "throw": "Throw dice",
+      "portrait": "Show to players",
+      "cancel": "Cancel"
+    },
+    "DICE": {
+      "d4": {
+        "label": "D4"
+      },
+      "d6": {
+        "label": "D6"
+      },
+      "d8": {
+        "label": "D8"
+      },
+      "d10": {
+        "label": "D10"
+      },
+      "d12": {
+        "label": "D12"
+      }
+    },
+    "DISCIPLINES": {
+      "alchemy": {
+        "label": "Alchemy"
+      },
+      "blackmagic": {
+        "label": "Black Magic"
+      },
+      "demonology": {
+        "label": "Demonic Magic"
+      },
+      "necromancy": {
+        "label": "Necromantic Magic"
+      },
+      "whitemagic": {
+        "label": "White Magic"
+      }
+    },
+    "ENNEMIES": {
+      "minion": {
+        "label": "Minion"
+      },
+      "antagonist": {
+        "label": "Antagonist"
+      }
+    },
+    "FIGHTING_STYLES": {
+      "deadeyeShooter": {
+        "label": "Deadeye Shooter",
+        "weapons": "Any Ranged weapon",
+        "bonus": "When the Character makes a Focused Attack they inflict +1D4 Damage.",
+        "hindrance": "Taking the Move Action (even through Stamina spends or other rules) immediately ends this Fighting Style. May not take the Manipulate Action."
+      },
+      "defensiveFighter": {
+        "label": "Defensive Fighter",
+        "weapons": "Any One-Handed weapon, plus a Shield",
+        "bonus": "The Character gains +1 AR. The Character gains an additional +1 AR during any Round in which they do not take the Move Action.",
+        "hindrance": "Taking the Move Action more than once in a Round (even through Stamina spends or other rules) immediately ends this Fighting Style. May not take the Manipulate Action."
+      },
+      "dualWielder": {
+        "label": "Dual Wielder",
+        "weapons": "Any two Light or Medium One-Handed weapons",
+        "bonus": "When making an Attack, the Character adds both weapons’ Damage rolls to their Might.",
+        "hindrance": "-1 AR (down to a minimum of 0). May not take the Manipulate Action."
+      },
+      "flexibleFighter": {
+        "label": "Flexible Fighter",
+        "weapons": "Any One-Handed weapon (other hand empty)",
+        "bonus": "The Character inflicts +1 Damage. The Manipulate Action becomes a Free Action.",
+        "hindrance": "-1 Physical Defense."
+      },
+      "greatWeaponFighter": {
+        "label": "Great-Weapon Fighter",
+        "weapons": "Any Two-Handed Heavy weapon",
+        "bonus": "When the Character makes a Focused Attack they inflict +1D4 Damage.",
+        "hindrance": "The Character may only take the Move Action as their first Action each Round. May not take the Manipulate Action."
+      },
+      "none": {
+        "label": "None",
+        "weapons": "Any",
+        "bonus": "None.",
+        "hindrance": "None."
+      },
+      "phalanxFighter": {
+        "label": "Phalanx Fighter",
+        "weapons": "Spear or Halberd (Two-Handed weapon with a Close Range Attack)",
+        "bonus": "The Character gains +1 to Attacks and Damage rolls in any Round that they take the Move Action, and +1 Physical Defense in any Round that they do not take the Move Action.",
+        "hindrance": "The bonus for this stance may only be applied if there is at least one other Player Character within Close Range also using this Fighting Style. May not take the Manipulate Action."
+      }
+    },
+    "INFO": {
+      "rightclick": "Right click for actions",
+      "physdefformula": "Edge Stat +2 +any bonuses (Min 5)",
+      "sordefformula": "Wits Stat +2 +any bonuses (Min 5)"
+    },
+    "NEW": {
+      "armor": "New armor",
+      "npcability": "New ability",
+      "originBonus": "New origin",
+      "skill": "New skill",
+      "weapon": "New weapon"
+    },
+    "RANGES": {
+      "touch": {
+        "label": "Touch"
+      },
+      "close": {
+        "label": "Close"
+      },
+      "medium": {
+        "label": "Medium"
+      },
+      "long": {
+        "label": "Long"
+      },
+      "distant": {
+        "label": "Distant"
+      }
+    },
+    "SETTINGS": {
+      "systemGuide": {
+        "name": "System guide",
+        "hint": "Display the system guide"
+      },
+      "advancedrules": {
+        "name": "Advanced rules",
+        "hint": "Use advanced rules for fighting styles"
+      }
+    },
+    "WEAPON_TYPES": {
+      "melee": {
+        "label": "Melee"
+      },
+      "ranged": {
+        "label": "Ranged"
+      },
+      "shield": {
+        "label": "Shield"
+      },
+      "sorcery": {
+        "label": "Sorcery"
+      },
+      "thrown": {
+        "label": "Thrown"
+      },
+      "unarmed": {
+        "label": "Unarmed"
+      }
+    },
+    "WEAPON_WEIGHTS": {
+      "light": {
+        "label": "Light"
+      },
+      "medium": {
+        "label": "Medium"
+      },
+      "heavy": {
+        "label": "Heavy"
+      },
+      "unarmed": {
+        "label": "Unarmed"
+      }
+    },
+    "Source": {
+      "FIELDS": {
+        "ar": {
+          "label": "AR"
+        },
+        "armorRating": {
+          "label": "Armor rating"
+        },
+        "armorType": {
+          "label": "Armor type"
+        },
+        "bonus": {
+          "label": "Bonus"
+        },
+        "damage": {
+          "label": "Damage"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "discipline": {
+          "label": "Sorcery discipline"
+        },
+        "encombrement": {
+          "label": "Encombrement"
+        },
+        "hindrance": {
+          "label": "Hindrance"
+        },
+        "lifeCost": {
+          "label": "Life Cost"
+        },
+        "lifepoints": {
+          "label": "Life points"
+        },
+        "name": {
+          "Name": "Name"
+        },
+        "origin": {
+          "label": "Origin"
+        },
+        "range": {
+          "label": "Range"
+        },
+        "stamina": {
+          "label": "Stamina"
+        },
+        "staminaCost": {
+          "label": "Stamina Cost"
+        },
+        "weapons": {
+          "label": "Weapons"
+        },
+        "weaponType": {
+          "label": "Weapon type"
+        },
+        "weaponWeight": {
+          "label": "Weapon Weight"
+        },
+        "xpCost": {
+          "label": "XP Cost"
+        },
+        "zones": {
+          "label": "Zones"
+        }
+      }
+    }
+  }
+}

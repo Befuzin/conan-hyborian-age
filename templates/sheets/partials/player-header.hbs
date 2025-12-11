@@ -1,0 +1,83 @@
+<header class="player-header">
+    <div class="player-portrait std-contextmenu" data-group="portrait">
+        {{#if unlocked}}
+        <img class="profile-img" src="{{actor.img}}" alt="{{actor.name}}" data-action="editImage" data-edit="img" title="{{actor.name}}">
+        {{else if (ne actor.img "icons/svg/mystery-man.svg")}}
+        <img src="{{actor.img}}" title="{{actor.name}}" />
+        {{/if}}
+    </div>
+    <div class="name-line">
+        <input class="nameinput" name="name" type="text" value="{{actor.name}}" />
+    </div>
+    <div class="origin-line">
+        {{#if originBonus}}{{originBonus}}{{else}}
+            {{#if unlocked}}
+            <span class="plusicon">
+                <i class="fas fa-plus" data-action="newItem" data-field="originBonus" title="{{localize 'CONAN.NEW.originBonus'}}"></i>
+            </span>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{#if advancedRules}}
+    <div class="fightingStyle-line">
+        {{#each fightingStyles as |fightingStyle id|}}
+            <span class="{{#if fightingStyle.isActive}}fightingStyle-selected{{/if}}">
+<i class="{{fightingStyle.icon}}" data-action="changeFightingStyle" data-field={{id}} data-tooltip="{{fightingStyle.label}}"></i>
+            </span>
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="var_block std-contextmenu" style="grid-row: 1/2;grid-column: 3/4;" data-group="stamina">
+        <div class="line-label">
+            {{localize "CONAN.LABEL.stamina"}}
+        </div>
+        <div class="var_val">
+            {{formInput systemFields.stamina.fields.value value=system.stamina.value}}
+        </div>
+        <div class="var_val">
+        </div>
+    </div>
+    <div class="var_block std-contextmenu" style="grid-row: 2/3;grid-column: 3/4;" data-group="life">
+        <div class="line-label">
+            {{localize "CONAN.LABEL.lifePoints"}}
+        </div>
+        <div class="var_val">
+            {{formInput systemFields.life.fields.value value=system.life.value}}
+        </div>
+        <div class="var_val">
+        {{#if unlocked}}
+            {{formInput systemFields.life.fields.max value=system.life.max}}
+        {{else}}
+            <a style="margin-top:2px">{{actor.system.life.max}}</a>
+        {{/if}}
+        </div>
+    </div>
+    <div class="var_block" style="grid-row: 3/4;grid-column: 3/4;" data-group="xp">
+        <div class="line-label">
+            {{localize "CONAN.LABEL.experience"}}
+        </div>
+        <div class="var_val">
+            {{formInput systemFields.xp.fields.current value=system.xp.current}}
+        </div>
+        <div class="var_val">
+        {{#if unlocked}}
+            {{formInput systemFields.xp.fields.total value=system.xp.total disabled=locked}}
+        {{else}}
+            <a style="margin-top:2px">{{actor.system.xp.total}}</a>
+        {{/if}}
+        </div>
+    </div>
+    {{! Sheet Navigation }}
+    <div class="right-icons">
+        {{> "systems/conan-hyborian-age/templates/sheets/parts/unlock-icon.hbs"}}
+        <nav class="sheet-tabs tabs tablist" aria-roledescription="{{localize 'SHEETS.FormNavLabel'}}">
+        {{#each tabs as |tab|}}
+        <a class="choix_tab {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}"
+            {{#if tab.tooltip}}data-tooltip="{{tab.tooltip}}"{{/if}}>
+            {{#if tab.icon}}<i class="{{tab.icon}}"></i>{{/if}}
+            {{#if tab.label}}<label>{{localize tab.label}}</label>{{/if}}
+        </a>
+        {{/each}}
+        </nav>
+    </div>
+</header>

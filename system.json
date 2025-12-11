@@ -1,0 +1,77 @@
+{
+  "id": "conan-hyborian-age",
+  "title": "Conan the hyborian age",
+  "description": "Official system for Conan: the hyborian age",
+  "version": "#{VERSION}#",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Khaali"
+    }
+  ],
+  "esmodules": ["conan-hyborian-age.mjs"],
+  "styles": ["css/conan-hyborian-age.css"],
+  "documentTypes": {
+    "Actor": {
+      "player": { "htmlFields": ["description"] },
+      "npc": { "htmlFields": ["description"] }
+    },
+    "Item": {
+      "armor": { "htmlFields": ["description"] },
+      "npcability": { "htmlFields": ["description"] },
+      "originBonus": { "htmlFields": ["description"] },
+      "skill": { "htmlFields": ["description"] },
+      "spell": { "htmlFields": ["description"] },
+      "weapon": { "htmlFields": ["description"] }
+    }
+  },
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json"
+    }
+  ],
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["lang/", "assets/", "templates/", "css/"]
+    }
+  },
+  "media": [
+    {
+      "type": "cover",
+      "thumbnail": "systems/conan-hyborian-age/assets/system/system_title.webp",
+      "loop": false,
+      "flags": {}
+    },
+    {
+      "type": "setup",
+      "loop": false,
+      "thumbnail": "systems/conan-hyborian-age/assets/system/system_title.webp",
+      "flags": {}
+    }
+  ],
+  "grid": {
+    "distance": 1.5,
+    "units": "m",
+    "type": 0
+  },
+  "background": "systems/conan-hyborian-age/assets/images/background.webp",
+  "primaryTokenAttribute": "life",
+  "secondaryTokenAttribute": "stamina",
+  "initiative": "1@attributes.edge.dice + @attributes.edge.value",
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#"
+}
