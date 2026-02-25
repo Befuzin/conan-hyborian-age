@@ -79,7 +79,7 @@ function preLocalizeConfig() {
     for (let o of Object.values(obj)) {
       for (let k of keys) {
         o[k] = game.i18n.localize(o[k]);
-        console.log(o[k]);
+       // console.log(o[k]);
       }
     }
   };

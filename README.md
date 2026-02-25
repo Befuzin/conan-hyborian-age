@@ -39,11 +39,8 @@
 <li><strong>Conan : L'Âge Hyborien</strong> (français) contient le livre de règles, et les compendiums des monstres, PnJs, compétences, sorts, armes...</li>
 </ul>
 <h2>Community</h2>
-<p>You can reach us on <a href="https://discord.com/invite/5Fj2E42X">Foundry Virtual Tabletop discussions Discord server</a> or <a href="https://discord.gg/eWDyQj3d">The Overlord - Monolith</a>  Discord server<br />
-We'd love to hear your feedback on the system, bug reports, ideas for improvement, or just encouragement !</p>
-<p>Rejoignez-nous sur le serveur <a href="https://discord.com/invite/pPSDNJk">Discord francophone dédié à Foundry Virtual Tabletop</a><br />
-Nous serons ravis d'y avoir vos retours sur le système, des signalements de bug, des idées d'amélioration, ou simplement des encouragements !</p>
-
+<p>You can reach us on <a href="https://discord.gg/foundryvtt" target="_blank" rel="nofollow noopener">Foundry Virtual Tabletop discussions Discord server</a> or <a href="https://discord.gg/qEt5JcGs" target="_blank" rel="nofollow noopener">The fans of Monolith</a> &nbsp;Discord server<br />We'd love to hear your feedback on the system, bug reports, ideas for improvement, or just encouragement !</p>
+<p>Rejoignez-nous sur le serveur <a href="https://discord.com/invite/pPSDNJk" target="_blank" rel="nofollow noopener">Discord francophone d&eacute;di&eacute; &agrave; Foundry Virtual Tabletop</a> ou <a href="https://discord.gg/bwDVzdxb" target="_blank" rel="nofollow noopener">le serveur Discord Monolith The Overlord</a><br />Nous serons ravis d'y avoir vos retours sur le syst&egrave;me, des signalements de bug, des id&eacute;es d'am&eacute;lioration, ou simplement des encouragements !</p>
 </h2>Licences</h2>
 <ul>
 <li>CONAN, CONAN THE BARBARIAN, CONAN THE CIMMERIAN, HYBORIA, and related logos, characters, names, and distinctive likenesses there of trademarks or registered trademarks of Conan Properties International LLC. All Rights Reserved. Used with permission.</li>
