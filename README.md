@@ -1,8 +1,48 @@
+Removed the system’s reliance on global variables and cleaned up how configuration is handled.
 
-<p>Cleaned up the SYSTEM imports so the system no longer relies on globalThis.SYSTEM that were missing explicit imports</p>
-Replaced new Dialog(...) with new foundry.applications.api.DialogV2(...)
-Replaced global ImagePopout with foundry.applications.apps.ImagePopout</p>
+- `SYSTEM` is now explicitly imported where needed instead of relying on `globalThis.SYSTEM`.
+- The old global exposure has been replaced with a safer macro namespace: `globalThis.CONAN.SYSTEM`.
+- This makes the system more stable, predictable, and future-proof.
 
+Aligned more with Foundry v13+
+
+Got rid of the remaining legacy (V1) Application usage.
+
+- Replaced `Dialog` with `DialogV2`.
+- Replaced the global `ImagePopout` with the namespaced v13 version.
+- Result: no more deprecation warnings related to portrait display.
+
+
+API Fixes
+
+Fixed small but important v13 compatibility issues
+
+- `ui.notifications.warning()` → `ui.notifications.warn()`  
+(Multi-targeting now shows a proper warning instead of crashing)
+- `actor._id` → `actor.id`
+- Converted `isMinion()` into a getter so `actor.isMinion` behaves correctly.
+
+Changes prevent runtime errors.
+
+
+UI Stability
+
+Fixed an issue where blank numeric inputs could produce `NaN`, causing browser warnings.
+
+- Numeric parsing is now clamped.
+- No more “value NaN cannot be parsed” warnings.
+
+
+Cleaned sheet architecture
+
+Refactored how sheets handle display only values.
+
+- Stopped writing enriched HTML and derived values directly into `item.system`.
+- These values now live in the sheet’s render context instead.
+- Templates were updated to use `lookup` for enriched descriptions and derived strings.
+
+
+Idea is to keep the DataModels clean and ensures the schema only contains real game data not UI 
 
 
 
