@@ -1,3 +1,4 @@
+import { SYSTEM } from "../config/system.mjs";
 export default class ConanPlayer extends foundry.abstract.TypeDataModel {  /** @override */
   static LOCALIZATION_PREFIXES = [
     "CONAN.Source"

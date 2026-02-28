@@ -2,7 +2,8 @@ import { SYSTEM } from "./module/config/system.mjs";
 import { registerHandlebarsHelpers } from "./module/helpers.mjs";
 import { registerSettings } from './module/config/register-settings.mjs'
 
-globalThis.SYSTEM = SYSTEM;
+globalThis.CONAN ??= {};
+globalThis.CONAN.SYSTEM = SYSTEM;
 
 // Import modules
 import * as applications from "./module/applications/_module.mjs";

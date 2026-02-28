@@ -1,5 +1,6 @@
 import CheckRoll from "../applications/rolls/check-roll.mjs";
 import ConanChatMessage from "../applications/rolls/chatmessage.mjs";
+import { SYSTEM } from "../config/system.mjs";
 export default class ConanActor extends Actor {
   /** @inheritdoc */
   async _preCreate(data, options, user) {
@@ -128,31 +129,37 @@ export default class ConanActor extends Actor {
   }
 
   /*Show portrait */
+
   async showPortrait(options = {}) {
-    let htmlTemplate = `
-    <h3>Portrait</h3>`;
-    new Dialog({
-      title: "Portrait",
+    const htmlTemplate = `<h3>Portrait</h3>`;
+    const ImagePopout = foundry.applications.apps.ImagePopout;
+
+    new foundry.applications.api.DialogV2({
+      window: { title: "Portrait" },
       content: htmlTemplate,
-      buttons: {
-        validate: {
+      buttons: [
+        {
+          action: "validate",
           label: game.i18n.format("CONAN.DIALOG.portrait", { actorName: this.name }),
+          default: true,
           callback: () => {
-            const print = new ImagePopout({
-              src: this.img,
+            const pop = new ImagePopout(this.img, {
               uuid: this.uuid,
-              window: { title: this.name },
+              window: { title: this.name }
             });
-            print.render(true);
-            print.shareImage();
-          },
+
+            pop.render({ force: true });
+            if (typeof pop.shareImage === "function") pop.shareImage();
+          }
         },
-        close: {
-          label: game.i18n.format("CONAN.DIALOG.cancel"),
-        },
-      },
-    }).render(true);
+        {
+          action: "close",
+          label: game.i18n.format("CONAN.DIALOG.cancel")
+        }
+      ]
+    }).render({ force: true });
   }
+
 
   /**
    * set to max

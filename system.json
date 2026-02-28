@@ -2,7 +2,7 @@
   "id": "conan-hyborian-age",
   "title": "Conan the hyborian age",
   "description": "Official system for Conan: the hyborian age",
-  "version": "#{VERSION}#",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
@@ -71,7 +71,7 @@
   "primaryTokenAttribute": "life",
   "secondaryTokenAttribute": "stamina",
   "initiative": "1@attributes.edge.dice + @attributes.edge.value",
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#"
+  "url": "https://github.com/Monolith-RPGs-FoundryVTT/conan-hyborian-age",
+  "manifest": "https://github.com/Monolith-RPGs-FoundryVTT/conan-hyborian-age/releases/latest/download/system.json",
+  "download": "https://github.com/Monolith-RPGs-FoundryVTT/conan-hyborian-age/releases/download/1.0.1/system.zip"
 }
