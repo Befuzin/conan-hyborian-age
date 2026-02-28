@@ -123,7 +123,7 @@
                     <div class="weapon-info">{{weapon.system.damage}}</div>
                 </div>
             </summary>
-            <div class="description">{{{weapon.system.descriptionHTML}}}</div>
+            <div class="description">{{{lookup ../enrichedItemDescriptions weapon._id}}}</div>
         </details>
         </div>
     {{/each}}
@@ -133,9 +133,9 @@
     </div>
     {{/if}}
     {{#each npcabilities as |npcability id|}}
-        <div class="npcability item-contextmenu" data-item-id="{{npcability._id}}"><a class="ability-name">{{{npcability.name}}}</a><a class="ability-desc">{{{npcability.system.descriptionHTML}}}</a></div>
+        <div class="npcability item-contextmenu" data-item-id="{{npcability._id}}"><a class="ability-name">{{{npcability.name}}}</a><a class="ability-desc">{{{lookup ../enrichedItemDescriptions npcability._id}}}</a></div>
     {{/each}}
     {{#each spells as |spell id|}}
-        <div class="npcability item-contextmenu" data-item-id="{{spell._id}}"><a class="ability-name">{{{spell.name}}}</a><a class="ability-desc">{{{spell.system.descriptionHTML}}}</a></div>
+        <div class="npcability item-contextmenu" data-item-id="{{spell._id}}"><a class="ability-name">{{{spell.name}}}</a><a class="ability-desc">{{{lookup ../enrichedItemDescriptions spell._id}}}</a></div>
     {{/each}}
 </section>

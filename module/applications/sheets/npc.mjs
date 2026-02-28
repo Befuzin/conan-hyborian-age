@@ -35,15 +35,25 @@ import { SYSTEM } from "../../config/system.mjs";
     context.npcabilities = this.actor.items.filter((item) => item.type == "npcability");
     context.spells = this.actor.items.filter((item) => item.type == "spell");
     context.weapons = this.actor.items.filter((item) => item.type == "weapon");
-    for (let element of context.npcabilities) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
+
+    // Render-only values (do not mutate system data)
+    const TE = foundry.applications.ux.TextEditor.implementation;
+    context.enrichedItemDescriptions = {};
+
+    const enrich = async (doc) => {
+      const id = doc?._id ?? doc?.id;
+      if (!id) return;
+      const raw = doc.system?.description ?? "";
+      context.enrichedItemDescriptions[id] = await TE.enrichHTML(raw, {
+        secrets: this.actor.isOwner,
+        rollData: this.actor.getRollData?.() ?? {},
+        relativeTo: this.actor,
+      });
     };
-    for (let element of context.spells) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    };
-    for (let element of context.weapons) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    };
+
+    for (const element of context.npcabilities) await enrich(element);
+    for (const element of context.spells) await enrich(element);
+    for (const element of context.weapons) await enrich(element);
     context.tabs = this._getTabs(["skills", "description"]);
     return context;
   }

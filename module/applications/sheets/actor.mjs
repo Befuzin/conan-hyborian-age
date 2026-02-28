@@ -34,8 +34,19 @@ export default class ConanActorSheet extends api.HandlebarsApplicationMixin(shee
     context.systemFields = this.document.system.schema.fields;
     context.attributes = this._getAttributes();
 
-    context.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.actor.system.description, { async: false });
-    context.equipementHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.actor.system.equipement, { async: false });
+    // Enrich actor fields asynchronously to support @UUID links, inline rolls, etc.
+    const TE = foundry.applications.ux.TextEditor.implementation;
+    const rollData = this.actor.getRollData?.() ?? {};
+    context.descriptionHTML = await TE.enrichHTML(this.actor.system.description ?? "", {
+      secrets: this.actor.isOwner,
+      rollData,
+      relativeTo: this.actor,
+    });
+    context.equipementHTML = await TE.enrichHTML(this.actor.system.equipement ?? "", {
+      secrets: this.actor.isOwner,
+      rollData,
+      relativeTo: this.actor,
+    });
     context.unlocked = this.actor.isUnlocked;
     context.locked = !this.actor.isUnlocked;
     return context;

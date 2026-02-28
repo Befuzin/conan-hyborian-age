@@ -75,9 +75,9 @@ export default class ConanChatMessage extends foundry.documents.ChatMessage {
     if (!game.user.isGM) {
       let found = false;
       let userArray = await actor.getOwnerPlayer();
-      let userId = game.user._id;
+      let userId = game.user.id;
       for (let user of userArray) {
-        if (user._id == userId) found = true;
+        if (user.id == userId) found = true;
       }
       if (!found) return;
     }

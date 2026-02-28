@@ -70,7 +70,7 @@
                         <div class="skill-name">{{origin.name}}</div>
                     </div>
                 </summary>
-                <div class="description">{{{origin.system.descriptionHTML}}}</div>
+                <div class="description">{{{lookup ../enrichedItemDescriptions origin._id}}}</div>
             </details>
             </div>
         {{/each}}
@@ -87,7 +87,7 @@
                         <div class="skill-name">{{skill.name}}</div>
                     </div>
                 </summary>
-                <div class="description">{{{skill.system.descriptionHTML}}}</div>
+                <div class="description">{{{lookup ../enrichedItemDescriptions skill._id}}}</div>
             </details>
             </div>
         {{/each}}
@@ -104,7 +104,7 @@
                         <div class="spell-name">{{spell.name}}</div>
                     </div>
                 </summary>
-                <div class="description">{{{spell.system.descriptionHTML}}}</div>
+                <div class="description">{{{lookup ../enrichedItemDescriptions spell._id}}}</div>
             </details>
             </div>
         {{/each}}
@@ -131,7 +131,7 @@
                         </div>
                         {{/if}}
                         <div class="weapon-name {{#if (eq weapon.system.weaponType "sorcery")}}purplecolor{{else}}redcolor{{/if}}">{{weapon.name}}</div>
-                        <div class="weapon-damage {{#if (eq weapon.system.weaponType "sorcery")}}purplecolor{{else}}redcolor{{/if}}">{{weapon.system.damageFormula}}</div>
+                        <div class="weapon-damage {{#if (eq weapon.system.weaponType "sorcery")}}purplecolor{{else}}redcolor{{/if}}">{{lookup ../weaponDamageFormula weapon._id}}</div>
                     </div>
                 </summary>
                     <div class="weapon-details">
@@ -140,7 +140,7 @@
                         <div class="field-name">{{localize "CONAN.LABEL.range"}}</div>
                         <div class="weapon-range">{{getLabel "RANGES" weapon.system.range}}</div>
                     </div>
-                <div class="description">{{{weapon.system.descriptionHTML}}}</div>
+                <div class="description">{{{lookup ../enrichedItemDescriptions weapon._id}}}</div>
             </details>
             </div>
         {{/each}}
@@ -173,7 +173,7 @@
                         <div class="field-name">{{localize "CONAN.LABEL.encombrement"}}</div>
                         <div class="weapon-range">{{armor.system.encombrement}}</div>
                     </div>
-                <div class="description">{{{armor.system.descriptionHTML}}}</div>
+                <div class="description">{{{lookup ../enrichedItemDescriptions armor._id}}}</div>
             </details>
             </div>
             {{/each}}

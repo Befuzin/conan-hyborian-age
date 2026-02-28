@@ -35,7 +35,14 @@ export default class ConanItemSheet extends api.HandlebarsApplicationMixin(sheet
     context.systemFields = this.document.system.schema.fields;
     context.unlocked = this.item.isUnlocked;
     context.locked = !this.item.isUnlocked;
-    context.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.item.system.description, { async: false });
+    // Enrich item description asynchronously to support @UUID links, inline rolls, etc.
+    const TE = foundry.applications.ux.TextEditor.implementation;
+    const rollData = this.item.parent?.getRollData?.() ?? {};
+    context.descriptionHTML = await TE.enrichHTML(this.item.system.description ?? "", {
+      secrets: this.item.isOwner,
+      rollData,
+      relativeTo: this.item,
+    });
     return context;
   }
   /* -------------------------------------------------- */

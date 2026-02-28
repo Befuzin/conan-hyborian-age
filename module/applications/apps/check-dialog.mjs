@@ -59,7 +59,8 @@ export class CheckDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         e.preventDefault();
         e.stopImmediatePropagation();
         const newValue = e.currentTarget.value;
-        this.options.context.modifier = parseInt(newValue);
+        const n = Number.parseInt(newValue, 10);
+        this.options.context.modifier = Number.isFinite(n) ? n : 0;
         this.render();
       });
     }
@@ -69,7 +70,8 @@ export class CheckDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         e.preventDefault();
         e.stopImmediatePropagation();
         const newValue = e.currentTarget.value;
-        this.options.context.difficulty = parseInt(newValue);
+        const n = Number.parseInt(newValue, 10);
+        this.options.context.difficulty = Number.isFinite(n) ? n : 0;
         this.render();
       });
     }

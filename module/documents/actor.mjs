@@ -206,8 +206,7 @@ export default class ConanActor extends Actor {
     if (this.type === "player" && ["melee", "thrown"].includes(weapon.system.weaponType)) damage += "+" + this.system.attributes.might.value.toString();
     return damage;
   }
-
-  async isMinion() {
+  get isMinion() {
     return this.system?.ennemyType === "minion";
   }
 
@@ -218,11 +217,11 @@ export default class ConanActor extends Actor {
     let targets = Array.from(game.user.targets);
     if (targets.length === 0) return null;
     if (targets.length > 1) {
-      ui.notifications.warning("Multi-targeting not supported");
+      ui.notifications.warn("Multi-targeting not supported");
       return null;
     }
     return {
-      targetActorId: targets[0].actor._id,
+      targetActorId: targets[0].actor.id,
       name: targets[0].name,
       tokenId: targets[0].id,
       targetPhysicalDef: targets[0].actor.system.defence.physical.value,

@@ -42,21 +42,31 @@ export default class PlayerSheet extends ConanActorSheet {
     context.weapons = this.actor.items.filter((item) => item.type == "weapon");
     context.originBonus = context.originBonuses[0]?.name;
 
-    for (let element of context.armors) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    }
-    for (let element of context.spells) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    }
-    for (let element of context.skills) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    }
-    for (let element of context.originBonuses) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-    }
-    for (let element of context.weapons) {
-      element.system.descriptionHTML = await foundry.applications.ux.TextEditor.implementation.enrichHTML(element.system.description, { async: false });
-      element.system.damageFormula = await this.actor.getWeaponDamageFormula(element._id);
+    // Render-only values (do not mutate system data)
+    const TE = foundry.applications.ux.TextEditor.implementation;
+    context.enrichedItemDescriptions = {};
+    context.weaponDamageFormula = {};
+
+    const enrich = async (doc) => {
+      const id = doc?._id ?? doc?.id;
+      if (!id) return;
+      const raw = doc.system?.description ?? "";
+      context.enrichedItemDescriptions[id] = await TE.enrichHTML(raw, {
+        secrets: this.actor.isOwner,
+        rollData: this.actor.getRollData?.() ?? {},
+        relativeTo: this.actor,
+      });
+    };
+
+    for (const element of context.armors) await enrich(element);
+    for (const element of context.spells) await enrich(element);
+    for (const element of context.skills) await enrich(element);
+    for (const element of context.originBonuses) await enrich(element);
+
+    for (const element of context.weapons) {
+      await enrich(element);
+      const id = element?._id ?? element?.id;
+      if (id) context.weaponDamageFormula[id] = await this.actor.getWeaponDamageFormula(id);
     }
     context.tabs = this._getTabs(["skills", "description"]);
 
