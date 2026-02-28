@@ -42,7 +42,27 @@ Refactored how sheets handle display only values.
 - Templates were updated to use `lookup` for enriched descriptions and derived strings.
 
 
-Idea is to keep the DataModels clean and ensures the schema only contains real game data not UI 
+Idea is to keep the DataModels clean
+
+
+Async HTML Enrichment (UUID Ready)
+
+- Switched all sheet enrichment to async `TextEditor.enrichHTML`.
+- Removed `{ async: false }` usage.
+- Added proper enrichment options (`secrets`, `rollData`, `relativeTo`).
+
+Full support for:
+
+- `@UUID[...]`
+- Inline rolls
+- Proper document-relative resolution
+
+v13 ID 
+- Replaced remaining deprecated `_id` usage:
+    
+    - `game.user._id` → `game.user.id`
+        
+    - `user._id` → `user.id`
 
 
 
