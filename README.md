@@ -1,4 +1,19 @@
 
+Cleaned up the SYSTEM imports so the system no longer relies on globalThis.SYSTEM that were missing explicit imports
+Replaced new Dialog(...) with new foundry.applications.api.DialogV2(...)
+Replaced global ImagePopout with foundry.applications.apps.ImagePopout
+
+
+
+
+
+
+
+
+
+
+
+
 <p style="margin-left: 10%; text-align:center;"><img src="https://github.com/Monolith-RPGs-FoundryVTT/conan-hyborian-age/blob/main/assets/system/system_title.webp" /></p>
 
 <h1>The <em>Conan : the hyborian age</em> official system</h1>
