@@ -1,7 +1,7 @@
 
-Cleaned up the SYSTEM imports so the system no longer relies on globalThis.SYSTEM that were missing explicit imports
+<p>Cleaned up the SYSTEM imports so the system no longer relies on globalThis.SYSTEM that were missing explicit imports
 Replaced new Dialog(...) with new foundry.applications.api.DialogV2(...)
-Replaced global ImagePopout with foundry.applications.apps.ImagePopout
+Replaced global ImagePopout with foundry.applications.apps.ImagePopout</p>
 
 
 
