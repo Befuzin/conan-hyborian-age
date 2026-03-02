@@ -1,3 +1,6 @@
+Fork of the offical system, some tweaks and modifications for personal use.
+
+
 Removed the system’s reliance on global variables and cleaned up how configuration is handled.
 
 - `SYSTEM` is now explicitly imported where needed instead of relying on `globalThis.SYSTEM`.
